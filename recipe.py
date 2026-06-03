@@ -23,7 +23,7 @@ class Recipe:
         new_recipe = Recipe(self.title)
         
         for ingredient in self.ingredients:
-            new_recipe.add_ingredient(ingredient)
+            new_recipe.add_ingredient(Ingredient(ingredient.name, ingredient.quantity * ratio, ingredient.unit))
         return new_recipe
 
     def __len__(self):
