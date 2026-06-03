@@ -19,8 +19,12 @@ class Recipe:
     def scale(self, ratio):
         if not Recipe.is_valid_ratio(ratio):
             raise ValueError("Количество рационов должно быть положительным.")
+        
+        new_recipe = Recipe(self.title)
+        
         for ingredient in self.ingredients:
-            ingredient.quantity *= ratio
+            new_recipe.add_ingredient(ingredient)
+        return new_recipe
 
     def __len__(self):
         return len(self.ingredients)
